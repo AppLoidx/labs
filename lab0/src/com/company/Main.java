@@ -10,5 +10,7 @@ public class Main {
         int a = 14;
 
         System.out.print(a+45);
+
+        // this a new code 2
     }
 }

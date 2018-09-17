@@ -1,16 +1,12 @@
 package com.company;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.print("Hello!");
+    public static void main(String[] args) throws IOException {
+        FileManager fileReader = new FileManager("input.txt");
 
-        // This is new code for github!
 
-        int a = 14;
-
-        System.out.print(a+45);
-
-        // this a new code 2
     }
 }

@@ -14,13 +14,14 @@ class FileManager {
     /** Запись в файл*/
     private FileWriter fw;
     private String nameOfFile;
+
+    private boolean error = false;
+    private String errorMessage = "";
+
     /**
      * @param filename Имя файла, с которым надо работать
      * @throws IOException Обработка исключения ввода/вывода
      */
-    boolean error = false;
-    String errorMessage;
-
     FileManager(String filename) throws IOException {
 
         try {

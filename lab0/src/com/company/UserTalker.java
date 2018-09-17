@@ -2,8 +2,12 @@ package com.company;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
-public class UserTalker {
+class UserTalker {
+
+    private Scanner scanner = new Scanner(System.in);
 
     /**
      * @throws IOException обработка ошибки
@@ -31,9 +35,56 @@ public class UserTalker {
         }
     }
 
-    private void defaultWelcomeMessage(){
+    /**
+     * Задает вопрос пользователю и получает от него ответ, который возвращает.
+     * Если ответ введен некорректно, рекурсивно вызывает саму себя.
+     * @param message Сообщение пользователю
+     * @return Ответ выбранный пользователем. true -Y, false -N
+     */
+    boolean askYesNo(String message){
+        scanner = new Scanner(System.in);
+        System.out.println(message+" <Y/N>?");
+        String user_input = scanner.nextLine();
+        switch (user_input.toUpperCase()){
+            case "Y":
+                return true;
+            case "N":
+                return false;
+            default:
+                System.out.println("Вы ввели недопустимое значение. Повторите ввод.");
+                return askYesNo("");
+        }
+    }
 
+    /**
+     * Получает целое число вводом пользователя
+     * При некорректном вводе, повторяет рекурсивно операцию
+     * @return ответ пользователя типа int
+     */
+    int getIntFromUser(){
+        updateScanner();
+        int user_input;
+
+        /*Обработка ошибочного ввода пользователя*/
+        try {
+            user_input = scanner.nextInt();
+        }catch (InputMismatchException e){
+            System.out.println("Некорректно введены данные. Повторите ввод.");
+            user_input = getIntFromUser();
+        }
+        return user_input;
+    }
+
+    int getIntFromUser(String message){
+        System.out.println(message);
+        return getIntFromUser();
+    }
+
+    private void defaultWelcomeMessage(){
         final String WELCOME_TEXT = "Программа запущена. Автор: Куприянов Артур";
         System.out.println(WELCOME_TEXT);
+    }
+    private void updateScanner(){
+        scanner = new Scanner(System.in);
     }
 }

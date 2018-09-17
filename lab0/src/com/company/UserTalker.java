@@ -57,7 +57,7 @@ class UserTalker {
     }
 
     /**
-     * Получает целое число вводом пользователя
+     * Возвращает целое число, полученное вводом пользователя
      * При некорректном вводе, повторяет рекурсивно операцию
      * @return ответ пользователя типа int
      */
@@ -74,17 +74,61 @@ class UserTalker {
         }
         return user_input;
     }
-
+    /** Перегрузка метода с сообщением */
     int getIntFromUser(String message){
         System.out.println(message);
         return getIntFromUser();
     }
 
+    /**
+     * Возвращает целое число, полученное вводом пользователя
+     * При некорректном вводе, повторяет рекурсивно операцию
+     * @return ответ пользователя типа float
+     */
+    float getFloatFromUser(){
+        updateScanner();
+        float user_input;
+
+        /*Обработка ошибочного ввода пользователя*/
+        try {
+            user_input = scanner.nextFloat();
+        }catch (InputMismatchException e){
+            System.out.println("Некорректно введены данные. Повторите ввод.");
+            user_input = getFloatFromUser();
+        }
+        return user_input;
+    }
+
+    /** Перегрузка метода с сообщением */
+    float getFloatFromUser(String message){
+        System.out.println(message);
+        return getFloatFromUser();
+    }
     private void defaultWelcomeMessage(){
         final String WELCOME_TEXT = "Программа запущена. Автор: Куприянов Артур";
         System.out.println(WELCOME_TEXT);
     }
     private void updateScanner(){
         scanner = new Scanner(System.in);
+    }
+
+    short getShortFromUser(){
+        updateScanner();
+        short user_input;
+
+        /*Обработка ошибочного ввода пользователя*/
+        try {
+            user_input = scanner.nextShort();
+        }catch (InputMismatchException e){
+            System.out.println("Некорректно введены данные. Повторите ввод.");
+            user_input = getShortFromUser();
+        }
+        return user_input;
+    }
+
+    /** Перегрузка метода с сообщением */
+    short getShortFromUser(String message){
+        System.out.println(message);
+        return getShortFromUser();
     }
 }

@@ -26,19 +26,9 @@ public class Main {
         }
 
 
-        int[] sortedFirstInput = getUserFirstInput(userTalker);
 
         System.out.println(userTalker.askYesNo("Вы хотите тортик?"));
 
     }
-    private static int[] getUserFirstInput(UserTalker userTalker){
-        int value1 = userTalker.getIntFromUser("Введите первое крайнее значение: ");
-        int value2 = userTalker.getIntFromUser("Введите второе крайнее значение: ");
-        if (value1 > value2){
-            int temp = value1;
-            value1 = value2;
-            value2 = temp;
-        }
-        return new int[]{value1,value2};
-    }
+
 }

@@ -18,19 +18,36 @@ class FileManager {
      * @param filename Имя файла, с которым надо работать
      * @throws IOException Обработка исключения ввода/вывода
      */
+    boolean error = false;
+    String errorMessage;
+
     FileManager(String filename) throws IOException {
 
         try {
             this.br = new BufferedReader(new FileReader(filename));
+            this.fw = new FileWriter(new File(filename),true);
+
+            this.nameOfFile = filename;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("Ошибка в работе программы");
+            System.out.println("[FileManager]Ошибка в работе программы, не найден файл "+filename+".");
+            error = true;
+            errorMessage+="FileNotFoundException\n";
         }
-        this.fw = new FileWriter(new File(filename),true);
 
-        this.nameOfFile = filename;
     }
-
+    boolean checkError(){
+        return error;
+    }
+    String[] getError(){
+        return (errorMessage.split("\n"));
+    }
+    void printError(){
+        if (error){
+            System.out.println(errorMessage);
+        }else{
+            System.out.println("Ошибок нет");
+        }
+    }
     //TODO: Write string value to file
     void write(String text) throws IOException {
         fw.write(text);

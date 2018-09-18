@@ -30,7 +30,7 @@ public class Main {
         short[] a;
         a = arrayCreator.createArrayWithSequenceShortNumbers();
 
-        System.out.println("Создание массива b:");
+        System.out.println("Создание массива x:");
         double[] x;
         x = arrayCreator.createArrayWithRandomNumbers();
 

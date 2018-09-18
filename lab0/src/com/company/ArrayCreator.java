@@ -70,4 +70,75 @@ class ArrayCreator {
 
         return array;
     }
+    float[][] createMatrixWithUserInputX(int maxValueY){
+        int x = userTalker.getIntFromUser("Количество строк:");
+        if (x<1){
+            System.out.println("Введеное вами значение некорректно для матрицы."+
+                    "\nКоличество строк не должно быть меньше единицы. По умолчанию взято минимальное значение.");
+            x = 1;
+        }
+        System.out.print("Максимальное значение стобцов: ");
+        System.out.println(maxValueY);
+        int y = userTalker.getIntFromUser("Количество столбцов:");
+        if (y > maxValueY){
+            System.out.println("Введенное вами значение первосходит максимальное значение."+
+                    "\n По умолчанию взято максимально возможное значение.");
+            y = maxValueY;
+        }else if(y<1){
+            System.out.println("Введеное вами значение некорректно для матрицы."+
+                    "\nКоличество столбцов не должно быть меньше единицы. По умолчанию взято минимальное значение.");
+            y = 1;
+        }
+        return new float[x][y];
+    }
+    float[][] getFilledMatrix(float[][] matrix,short[] a,double[] x){
+
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[i].length;j++){
+
+                if (a[i] == 10){
+                    matrix[i][j] = (float) Math.asin(
+                            Math.exp(
+                                    Math.pow(
+                                            -1.0*Math.pow(
+                                                        Math.tan(x[i]),
+                                                        2.0),
+                                            1/3.0
+                                    )
+                            )
+                    );
+
+                }else if(a[i] == 8 || a[i] == 12 || a[i] == 18){
+                    matrix[i][j] = (float) Math.exp(
+                            Math.pow(
+                                    Math.pow(x[i],x[i]),
+                                    ((1/3.0+Math.pow(x[i],1/3.0)) / 2) / 3 * (3+x[i])
+                            )
+                    );
+                }
+                else{
+                    matrix[i][j] = (float) Math.log(
+                            Math.pow(
+                                    Math.cos(
+                                            Math.pow(
+                                                    Math.log(
+                                                            Math.acos((x[i]-5)/16)
+                                                    ),
+                                                    2 * Math.log(
+                                                            Math.pow(
+                                                                    Math.cos(x[i]),
+                                                                    2
+                                                            )
+                                                    )
+                                            )
+                                    ),
+                                    2
+                            )
+                    );
+                }
+            }
+        }
+
+        return matrix;
+    }
 }

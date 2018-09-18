@@ -13,6 +13,7 @@ public class Main {
 
         final String INPUT_FILE = "inut.txt";
         UserTalker userTalker = new UserTalker();
+        ArrayCreator arrayCreator = new ArrayCreator();
         UserInput userInput = new UserInput();
 
         boolean workWithFile = userTalker.askYesNo("Получить вводимые данные из файла?");
@@ -23,6 +24,28 @@ public class Main {
                 fileManager.printError();
                 workWithFile = false;
             }
+        }
+        short[] a = arrayCreator.createArrayWithSequenceShortNumbers();
+        double[] x = arrayCreator.createArrayWithRandomNumbers();
+        int lenA = a.length;
+        int lenX = x.length;
+        int maxValue;
+        if (lenA < lenX){
+            maxValue = lenA;
+        }else{
+            maxValue = lenX;
+        }
+
+        float[][] matrix = arrayCreator.getFilledMatrix(arrayCreator.createMatrixWithUserInputX(maxValue),a,x);
+
+        for (float[] f1: matrix
+             ) {
+            for (float f2: f1
+                 ) {
+                System.out.print(f2);
+                System.out.print(" ");
+            }
+            System.out.println();
         }
 
 

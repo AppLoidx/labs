@@ -28,7 +28,6 @@ class ArrayCreator {
             array[temp] = i;
             temp++;
         }
-
         return array;
     }
 
@@ -70,13 +69,23 @@ class ArrayCreator {
 
         return array;
     }
-    float[][] createMatrixWithUserInputX(int maxValueY){
+    float[][] createMatrixWithUserInputX(int maxValueX, int maxValueY){
+
+        /* Получаем количество строк ограничиваяясь переменной maxValueX */
+        System.out.print("Максимальное значение строк: ");
+        System.out.println(maxValueX);
         int x = userTalker.getIntFromUser("Количество строк:");
-        if (x<1){
+        if (x > maxValueX){
+            System.out.println("Введенное вами значение первосходит максимальное значение."+
+                    "\n По умолчанию взято максимально возможное значение.");
+            x = maxValueX;
+        } else if (x < 1) {
             System.out.println("Введеное вами значение некорректно для матрицы."+
                     "\nКоличество строк не должно быть меньше единицы. По умолчанию взято минимальное значение.");
             x = 1;
         }
+
+        /* Получаем количество столбцов ограничиваясь переменной maxValueY */
         System.out.print("Максимальное значение стобцов: ");
         System.out.println(maxValueY);
         int y = userTalker.getIntFromUser("Количество столбцов:");
@@ -84,11 +93,12 @@ class ArrayCreator {
             System.out.println("Введенное вами значение первосходит максимальное значение."+
                     "\n По умолчанию взято максимально возможное значение.");
             y = maxValueY;
-        }else if(y<1){
+        } else if(y<1){
             System.out.println("Введеное вами значение некорректно для матрицы."+
                     "\nКоличество столбцов не должно быть меньше единицы. По умолчанию взято минимальное значение.");
             y = 1;
         }
+
         return new float[x][y];
     }
     float[][] getFilledMatrix(float[][] matrix,short[] a,double[] x){

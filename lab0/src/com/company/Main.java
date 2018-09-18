@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        final String INPUT_FILE = "inut.txt";
+        final String INPUT_FILE = "input.txt";
         UserTalker userTalker = new UserTalker();
         ArrayCreator arrayCreator = new ArrayCreator();
         UserInput userInput = new UserInput();
@@ -25,18 +25,20 @@ public class Main {
                 workWithFile = false;
             }
         }
-        short[] a = arrayCreator.createArrayWithSequenceShortNumbers();
-        double[] x = arrayCreator.createArrayWithRandomNumbers();
-        int lenA = a.length;
-        int lenX = x.length;
-        int maxValue;
-        if (lenA < lenX){
-            maxValue = lenA;
-        }else{
-            maxValue = lenX;
-        }
 
-        float[][] matrix = arrayCreator.getFilledMatrix(arrayCreator.createMatrixWithUserInputX(maxValue),a,x);
+        System.out.println("Создание массива а:");
+        short[] a;
+        a = arrayCreator.createArrayWithSequenceShortNumbers();
+
+        System.out.println("Создание массива b:");
+        double[] x;
+        x = arrayCreator.createArrayWithRandomNumbers();
+
+        final int MAX_VALUE_X = a.length;
+        final int MAX_VALUE_Y = x.length;
+
+        float[][] matrix;
+        matrix = arrayCreator.getFilledMatrix(arrayCreator.createMatrixWithUserInputX(MAX_VALUE_X,MAX_VALUE_Y),a,x);
 
         for (float[] f1: matrix
              ) {

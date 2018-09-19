@@ -76,7 +76,7 @@ class UserTalker {
     }
     /** Перегрузка метода с сообщением */
     int getIntFromUser(String message){
-        System.out.println(message);
+        System.out.print(message);
         return getIntFromUser();
     }
 
@@ -101,7 +101,7 @@ class UserTalker {
 
     /** Перегрузка метода с сообщением */
     float getFloatFromUser(String message){
-        System.out.println(message);
+        System.out.print(message);
         return getFloatFromUser();
     }
     private void defaultWelcomeMessage(){

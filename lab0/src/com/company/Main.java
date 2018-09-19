@@ -14,7 +14,9 @@ public class Main {
         final String INPUT_FILE = "input.txt";
         UserTalker userTalker = new UserTalker();
         ArrayCreator arrayCreator = new ArrayCreator();
-        UserInput userInput = new UserInput();
+        //UserInput userInput = new UserInput();
+
+        userTalker.welcomeMessage();
 
         boolean workWithFile = userTalker.askYesNo("Получить вводимые данные из файла?");
         if (workWithFile){
@@ -44,7 +46,7 @@ public class Main {
              ) {
             for (float f2: f1
                  ) {
-                System.out.print(f2);
+                System.out.printf("%.3f",f2);
                 System.out.print(" ");
             }
             System.out.println();

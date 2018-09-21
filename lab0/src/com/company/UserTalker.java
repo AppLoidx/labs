@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 class UserTalker {
 
+    // Для работы с вводом пользователя
     private Scanner scanner = new Scanner(System.in);
 
     /**
@@ -20,7 +21,7 @@ class UserTalker {
 
         final String FILENAME = "welcomeMessage.txt";
 
-        /*Обрабатываем исключение, если файла с приветсвенным текстом не существует*/
+        // Обрабатываем исключение, если файла с приветсвенным текстом не существует
         try {
             FileManager fileManager = new FileManager(FILENAME);
 
@@ -38,11 +39,14 @@ class UserTalker {
     /**
      * Задает вопрос пользователю и получает от него ответ, который возвращает.
      * Если ответ введен некорректно, рекурсивно вызывает саму себя.
+     * Принимает ответы : y,Y - true ; n,N - false;
+     *
      * @param message Сообщение пользователю
      * @return Ответ выбранный пользователем. true -Y, false -N
      */
     boolean askYesNo(String message){
-        scanner = new Scanner(System.in);
+
+        updateScanner();
         System.out.println(message+" <Y/N>?");
         String user_input = scanner.nextLine();
         switch (user_input.toUpperCase()){
@@ -61,7 +65,7 @@ class UserTalker {
      * При некорректном вводе, повторяет рекурсивно операцию
      * @return ответ пользователя типа int
      */
-    int getIntFromUser(){
+    private int getIntFromUser(){
         updateScanner();
         int user_input;
 
@@ -74,6 +78,7 @@ class UserTalker {
         }
         return user_input;
     }
+
     /** Перегрузка метода с сообщением */
     int getIntFromUser(String message){
         System.out.print(message);
@@ -85,7 +90,7 @@ class UserTalker {
      * При некорректном вводе, повторяет рекурсивно операцию
      * @return ответ пользователя типа float
      */
-    float getFloatFromUser(){
+    private float getFloatFromUser(){
         updateScanner();
         float user_input;
 
@@ -104,15 +109,8 @@ class UserTalker {
         System.out.print(message);
         return getFloatFromUser();
     }
-    private void defaultWelcomeMessage(){
-        final String WELCOME_TEXT = "Программа запущена. Автор: Куприянов Артур";
-        System.out.println(WELCOME_TEXT);
-    }
-    private void updateScanner(){
-        scanner = new Scanner(System.in);
-    }
 
-    short getShortFromUser(){
+    private short getShortFromUser(){
         updateScanner();
         short user_input;
 
@@ -131,4 +129,15 @@ class UserTalker {
         System.out.println(message);
         return getShortFromUser();
     }
+
+    /** Стандартное приветствие */
+    private void defaultWelcomeMessage(){
+        final String WELCOME_TEXT = "Программа запущена. Автор: Куприянов Артур";
+        System.out.println(WELCOME_TEXT);
+    }
+
+    private void updateScanner(){
+        scanner = new Scanner(System.in);
+    }
+
 }

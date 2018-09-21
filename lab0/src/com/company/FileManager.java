@@ -9,13 +9,19 @@ import java.io.*;
  */
 class FileManager {
 
-    /** Чтение из файла */
+    // Чтение из файла
     private BufferedReader br = null;
-    /** Запись в файл*/
+
+    // Запись в файл
     private FileWriter fw;
+
+    // Имя файла, с которым работает класс
     private String nameOfFile;
 
+    // Фиксируем на ошибки
     private boolean error = false;
+
+    // Строка с ошибками для вывода информации
     private String errorMessage = "";
 
     /**
@@ -29,6 +35,7 @@ class FileManager {
             this.fw = new FileWriter(new File(filename),true);
 
             this.nameOfFile = filename;
+
         } catch (FileNotFoundException e) {
             System.out.println("[FileManager]Ошибка в работе программы, не найден файл "+filename+".");
             error = true;
@@ -39,9 +46,12 @@ class FileManager {
     boolean checkError(){
         return error;
     }
+    /** Возвращает строку с ошибками */
     String[] getError(){
         return (errorMessage.split("\n"));
     }
+
+    /** Если есть ошибки - выводит на экран*/
     void printError(){
         if (error){
             System.out.println(errorMessage);
@@ -49,9 +59,13 @@ class FileManager {
             System.out.println("Ошибок нет");
         }
     }
+
     //TODO: Write string value to file
-    void write(String text) throws IOException {
+    void writeStr(String text) throws IOException {
         fw.write(text);
+    }
+    void appendStr(String text) throws IOException{
+        fw.append(text);
     }
 
     //TODO: Write integer value to file
@@ -69,11 +83,13 @@ class FileManager {
         fw.close();
         fw = new FileWriter(new File(nameOfFile));
     }
+
     //TODO: Update a BufferedReader
     void updateBufferedReader() throws IOException{
         br.close();
         br = new BufferedReader(new FileReader(nameOfFile));
     }
+
     //TODO: Close a FileWriter
     void closeFileWriter() throws IOException{
         fw.close();

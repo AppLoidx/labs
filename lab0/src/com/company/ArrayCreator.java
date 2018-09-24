@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 class ArrayCreator {
 
+    // Для работы со вводом и выводом с пользователем
     private UserTalker userTalker = new UserTalker();
 
     /**
@@ -11,7 +12,7 @@ class ArrayCreator {
      * Метод возвращает массив заполненный числами от x до y включительно,
      * либо наоборот от y до x, если x > y;
      *
-     * Перегрузка : если не заданы аргументы, запрашивает их у пользователя
+     * Перегрузка : если заданы аргументы, не запрашивает их у пользователя
      *
      * @return массив заполненный последовательными числами
      */
@@ -54,6 +55,7 @@ class ArrayCreator {
         double[] values = getTwoSortedDoubleValues();
         double valueMin = values[0];
         double valueMax = values[1];
+
         int arrayLen = userTalker.getIntFromUser("Количество чисел: ");
 
         return createArrayWithRandomNumbers(valueMin,valueMax,arrayLen);
@@ -111,7 +113,7 @@ class ArrayCreator {
         return new float[height][width];
     }
 
-    //TODO: Создает матрицу, размеры которого задает пользователь, огриченные макс. и мин. значением
+    //TODO: Создает матрицу, размеры которого задает пользователь, ограниченные макс. и мин. значением
     float[][] createMatrixWithUserInput(int maxValueY, int maxValueX){
 
         // Получаем количество строк (height) ограничиваяясь переменной maxValueY
@@ -121,12 +123,14 @@ class ArrayCreator {
 
         // Проверяем на возможные конфликты
         if (height > maxValueY){
-            System.out.println("Введенное вами значение первосходит максимальное значение."+
+            System.out.println(
+                    "Введенное вами значение первосходит максимальное значение."+
                     "\n По умолчанию взято максимально возможное значение.");
             height = maxValueY;
         } else if (height < 1) {
-            System.out.println("Введеное вами значение некорректно для матрицы."+
-                    "\nКоличество строк не должно быть меньше единицы. По умолчанию взято минимальное значение.");
+            System.out.println(
+                    "Введеное вами значение некорректно для матрицы."+
+                    "\nКоличество строк не должно быть меньше единицы. " + "По умолчанию взято минимальное значение.");
             height = 1;
         }
 
@@ -137,11 +141,13 @@ class ArrayCreator {
 
         // Проверяем на возможные конфликты
         if (width > maxValueX){
-            System.out.println("Введенное вами значение первосходит максимальное значение."+
+            System.out.println(
+                    "Введенное вами значение первосходит максимальное значение."+
                     "\n По умолчанию взято максимально возможное значение.");
             width = maxValueX;
         } else if(width<1){
-            System.out.println("Введеное вами значение некорректно для матрицы."+
+            System.out.println(
+                    "Введеное вами значение некорректно для матрицы."+
                     "\nКоличество столбцов не должно быть меньше единицы. По умолчанию взято минимальное значение.");
             width = 1;
         }

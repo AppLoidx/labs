@@ -86,7 +86,7 @@ class UserTalker {
     }
 
     /**
-     * Возвращает целое число, полученное вводом пользователя
+     * Возвращает число с плавающей точкой, полученное вводом пользователя
      * При некорректном вводе, повторяет рекурсивно операцию
      * @return ответ пользователя типа float
      */
@@ -110,6 +110,11 @@ class UserTalker {
         return getFloatFromUser();
     }
 
+    /**
+     * Возвращает число типа short, полученное вводом пользователя
+     * При некорректном вводе, повторяет рекурсивно операцию
+     * @return ответ пользователя типа short
+     */
     private short getShortFromUser(){
         updateScanner();
         short user_input;
@@ -130,12 +135,14 @@ class UserTalker {
         return getShortFromUser();
     }
 
-    /** Стандартное приветствие */
+    /** Стандартное приветствие
+     * Можно использовать при ошибках, так как вывод не зависит от внешних файлов */
     private void defaultWelcomeMessage(){
         final String WELCOME_TEXT = "Программа запущена. Автор: Куприянов Артур";
         System.out.println(WELCOME_TEXT);
     }
 
+    /** Обновляем сканнер, чтобы не перечитывать предыдущие вводы пользователя */
     private void updateScanner(){
         scanner = new Scanner(System.in);
     }

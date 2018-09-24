@@ -44,15 +44,18 @@ class FileManager {
         }
 
     }
+
+    /** Проверка на наличие ошибок*/
     boolean checkError(){
         return error;
     }
+
     /** Возвращает строку с ошибками */
     String[] getError(){
         return (errorMessage.split("\n"));
     }
 
-    /** Если есть ошибки - выводит на экран*/
+    /** Если есть ошибки - выводит их на экран*/
     void printError(){
         if (error){
             System.out.println(errorMessage);

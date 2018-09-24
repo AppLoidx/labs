@@ -1,8 +1,5 @@
 package com.company;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
 
 class MatrixInputer {
 
@@ -17,17 +14,21 @@ class MatrixInputer {
             for (float f2: f1
                  ) {
 
+                // Если элемент являтся Infinity, сокращаем его имя до Inf, для форматиртованного вывода
                 if(Float.isInfinite(f2)) {
                     wordLen = 3;
                     System.out.print(addSpace(spaceForElement - wordLen) + "Inf");
                 }
 
                 else {
+                    // Если элемент является NaN, то присваиваем ей длину 3
                     if (Float.isNaN(f2)) {
                         wordLen = 3;
-                        System.out.printf(addSpace(spaceForElement - wordLen) + "%.3f", f2);
+                        System.out.printf(addSpace(spaceForElement - wordLen) + "%f", f2);
                     } else {
 
+                        // Получаем длину элемента (отрицательного и положительного
+                        // wordLen присвоим целую часть числа вместо со знаком (+(empty)\-)
                         if (f2<0 && (int) f2 == 0){
                             wordLen = 2;
                         }else wordLen = String.valueOf((int)f2).length();

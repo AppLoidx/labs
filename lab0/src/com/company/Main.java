@@ -22,6 +22,7 @@ public class Main {
 
         userTalker.welcomeMessage();
 
+        // Считывание данных с файла - true, иначе false
         boolean workWithFile = userTalker.askYesNo("Получить вводимые данные из файла?");
 
         if (workWithFile){
@@ -35,7 +36,9 @@ public class Main {
             }
         }
 
+        // Массив с последовательными числами
         short[] a;
+        // Массив с случайными числами
         double[] x;
 
         // Условие для выбора способа получения данных: с файла\ с ввода пользователя
@@ -63,21 +66,27 @@ public class Main {
         }
 
         // Максимальные значения матрицы
-        final int MAX_VALUE_Y = a.length;
-        final int MAX_VALUE_X = x.length;
+        // Для того чтобы не было ошибок при обработке матрицы
+        final int MAX_VALUE_Y = a.length;   // макс допустимое значение для строк
+        final int MAX_VALUE_X = x.length;   // макс допустимое значение для столбцов
 
         float[][] matrix;
 
         if (workWithFile) {
 
             // Считывание данных с файла
-            final int HEIGHT_INPUT_FOR_MATRIX = Integer.parseInt(fileManager.readLine());
-            final int WIDTH_INPUT_FOR_MATRIX = Integer.parseInt(fileManager.readLine());
 
+            // Размеры матрицы
+            final int HEIGHT_INPUT_FOR_MATRIX = Integer.parseInt(fileManager.readLine()); // высота
+            final int WIDTH_INPUT_FOR_MATRIX = Integer.parseInt(fileManager.readLine());    // ширина
+
+            // Обработка элементов массива по формуле из условия задачи с заданными параметрами
             matrix = arrayCreator.getFilledMatrix(arrayCreator.createMatrix(
                     HEIGHT_INPUT_FOR_MATRIX, WIDTH_INPUT_FOR_MATRIX),
                     a, x);
         }else {
+
+            // Обработка элементов массива со вводом пользователя
             matrix = arrayCreator.getFilledMatrix(
                     arrayCreator.createMatrixWithUserInput(MAX_VALUE_Y, MAX_VALUE_X),
                     a, x);
@@ -88,10 +97,10 @@ public class Main {
 
         if (userTalker.askYesNo("Сделать вывод в файл?")){
 
-            // Стандартный поток вывода
+            // Стандартный системный поток вывода
             PrintStream standardOut = System.out;
 
-            // Поток вывода перенаправленный на файл
+            // Поток вывода направленный на файл
             PrintStream st = new PrintStream(new FileOutputStream("output.txt"));
 
             // Перенаправляем стандартный поток вывода в файл
@@ -99,9 +108,9 @@ public class Main {
 
             // Форматированный вывод матрицы
             MatrixInputer.printOnConsoleFloat(matrix,SPACE_FOR_ELEMENT);
+            // Так как мы перенаправили поток вывода в файл, то вывод будет производиться не в консоль, а в файл
 
-
-            // Возвращаем стандартный поток вывода
+            // Возвращаем стандартный поток вывода в консоль
             System.setOut(standardOut);
 
         }else {

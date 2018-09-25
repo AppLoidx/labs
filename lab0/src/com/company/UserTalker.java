@@ -13,7 +13,6 @@ class UserTalker {
     /**
      * @throws IOException обработка ошибки
      * @throws FileNotFoundException если файл не найден
-     * @throws NullPointerException дописать ошибку!!!
      * Выводит приветственное сообщение из файла.
      * Если файла не существует, то выводит сообщение по умолчанию.
      */
@@ -21,16 +20,20 @@ class UserTalker {
 
         final String FILENAME = "welcomeMessage.txt";
 
+        boolean successful = true;
         // Обрабатываем исключение, если файла с приветсвенным текстом не существует
-        try {
-            FileManager fileManager = new FileManager(FILENAME);
 
-            // Печатаем содержимое файла
-            String line;
-            while((line = fileManager.readLine()) != null) {
-                System.out.println(line);
+        FileManager fileManager;
+        try {
+            fileManager = new FileManager(FILENAME);
+            if (!fileManager.checkError()) {
+                // Печатаем содержимое файла
+                String line;
+                while ((line = fileManager.readLine()) != null) {
+                    System.out.println(line);
+                }
             }
-        }catch (FileNotFoundException | NullPointerException e){
+        }catch (FileNotFoundException e){
             System.out.println("[UserTalker.java]Файл "+FILENAME+" не найден. Используется приветствие по умолчанию.");
             defaultWelcomeMessage();
         }
@@ -48,15 +51,14 @@ class UserTalker {
 
         updateScanner();
         System.out.println(message+" <Y/N>?");
-        String user_input = scanner.nextLine();
-        switch (user_input.toUpperCase()){
-            case "Y":
-                return true;
-            case "N":
-                return false;
-            default:
-                System.out.println("Вы ввели недопустимое значение. Повторите ввод.");
-                return askYesNo("");
+        String user_input = scanner.nextLine().toUpperCase();
+        if (user_input.equals("Y")){
+            return true;
+        }else if(user_input.equals("N")){
+            return false;
+        }else{
+            System.out.println(" Вы ответили некорректно. Повторите ввод.");
+            return askYesNo("");
         }
     }
 

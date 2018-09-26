@@ -20,9 +20,7 @@ class UserTalker {
 
         final String FILENAME = "welcomeMessage.txt";
 
-        boolean successful = true;
         // Обрабатываем исключение, если файла с приветсвенным текстом не существует
-
         FileManager fileManager;
         try {
             fileManager = new FileManager(FILENAME);
@@ -34,6 +32,7 @@ class UserTalker {
                 }
             }
         }catch (FileNotFoundException e){
+            // Если файла нет, то выводим сообщение по умолчанию
             System.out.println("[UserTalker.java]Файл "+FILENAME+" не найден. Используется приветствие по умолчанию.");
             defaultWelcomeMessage();
         }
@@ -93,6 +92,7 @@ class UserTalker {
      * @return ответ пользователя типа float
      */
     private float getFloatFromUser(){
+
         updateScanner();
         float user_input;
 

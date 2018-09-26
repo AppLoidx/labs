@@ -186,14 +186,11 @@ class ArrayCreator {
                             Math.pow(
                                     Math.cos(
                                             Math.pow(
-                                                    Math.log(
-                                                            Math.acos((x[j]-5)/16)
-                                                    ),
-                                                    2 * Math.log(
-                                                            Math.pow(
+                                                    Math.log( Math.acos( (x[j]-5) /16)),
+                                                    2 * Math.log(Math.pow(
                                                                     Math.cos(x[j]),
                                                                     2
-                                                            )
+                                                                    )
                                                     )
                                             )
                                     ),

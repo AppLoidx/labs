@@ -3,12 +3,13 @@ package com.company;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 class UserTalker {
 
     // Для работы с вводом пользователя
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
     /**
      * @throws IOException обработка ошибки
@@ -146,7 +147,24 @@ class UserTalker {
 
     /** Обновляем сканнер, чтобы не перечитывать предыдущие вводы пользователя */
     private void updateScanner(){
-        scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in).useLocale(Locale.US);
     }
 
+    double getDoubleFromUser(){
+        updateScanner();
+        double user_input;
+
+        /*Обработка ошибочного ввода пользователя*/
+        try {
+            user_input = scanner.nextDouble();
+        }catch (InputMismatchException e){
+            System.out.println("Некорректно введены данные. Повторите ввод.");
+            user_input = getDoubleFromUser();
+        }
+        return user_input;
+    }
+    double getDoubleFromUser(String message){
+        System.out.println(message);
+        return getDoubleFromUser();
+    }
 }

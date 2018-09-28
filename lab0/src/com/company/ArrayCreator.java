@@ -86,8 +86,8 @@ class ArrayCreator {
     }
     //TODO: Запрашивает у пользователя два крайних значения типа double.
     private double[] getTwoSortedDoubleValues(){
-        double[] array = new double[]{userTalker.getShortFromUser("Введите первое крайнее значение: "),
-                userTalker.getShortFromUser("Введите второе крайнее значение: ")};
+        double[] array = new double[]{userTalker.getDoubleFromUser("Введите первое крайнее значение: "),
+                userTalker.getDoubleFromUser("Введите второе крайнее значение: ")};
 
         // Сортируем полученные значения, чтобы сначала стояло меньшее значение, затем большее
         Arrays.sort(array);

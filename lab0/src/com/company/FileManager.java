@@ -64,37 +64,38 @@ class FileManager {
         }
     }
 
-    //TODO: Write string value to file
+    /** Write string value to file */
     void writeStr(String text) throws IOException {
         fw.write(text);
     }
+
     void appendStr(String text) throws IOException{
         fw.append(text);
     }
 
-    //TODO: Write integer value to file
+    /** Write integer value to file */
     void writeInt(int integer) throws IOException{
         fw.write(integer);
     }
 
-    //TODO: Read line from file
+    /** Read line from file */
     String readLine() throws IOException {
         return br.readLine();
     }
 
-    //TODO: Update a FileWriter
+    /** Update a FileWriter */
     void updateFileWriter() throws IOException {
         fw.close();
         fw = new FileWriter(new File(nameOfFile));
     }
 
-    //TODO: Update a BufferedReader
+    /** Update a BufferedReader */
     void updateBufferedReader() throws IOException{
         br.close();
         br = new BufferedReader(new FileReader(nameOfFile));
     }
 
-    //TODO: Close a FileWriter
+    /** Close a FileWriter */
     void closeFileWriter() throws IOException{
         fw.close();
     }

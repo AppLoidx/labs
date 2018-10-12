@@ -44,7 +44,7 @@ class MatrixInputer {
 
     }
 
-    /** Возвращает пробелы в количестве value*/
+    /** Возвращает пробелы в количестве value */
     static private String addSpace(int value){
         StringBuilder s = new StringBuilder();
         for(int i=0;i<value;i++){

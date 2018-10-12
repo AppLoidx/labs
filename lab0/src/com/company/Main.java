@@ -93,18 +93,18 @@ public class Main {
         }
 
         // Место отведенное для каждого вывода элемента матрицы
-        int SPACE_FOR_ELEMENT = 11;
+        final int SPACE_FOR_ELEMENT = 11;
 
         if (userTalker.askYesNo("Сделать вывод в файл?")){
 
             // Стандартный системный поток вывода
             PrintStream standardOut = System.out;
 
-            // Поток вывода направленный на файл
-            PrintStream st = new PrintStream(new FileOutputStream("output.txt"));
+            // Поток вывода переправленный на файл
+            PrintStream fo = new PrintStream(new FileOutputStream("output.txt"));
 
             // Перенаправляем стандартный поток вывода в файл
-            System.setOut(st);
+            System.setOut(fo);
 
             // Форматированный вывод матрицы
             MatrixInputer.printOnConsoleFloat(matrix,SPACE_FOR_ELEMENT);

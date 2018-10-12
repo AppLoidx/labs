@@ -74,7 +74,7 @@ class ArrayCreator {
         return array;
     }
 
-    //TODO: Запрашивает у пользователя два крайних значения типа short.
+    /**Запрашивает у пользователя два крайних значения типа short.*/
     private short[] getTwoSortedShortValues() {
         short[] array = new short[]{userTalker.getShortFromUser("Введите первое крайнее значение: "),
                                 userTalker.getShortFromUser("Введите второе крайнее значение: ")};
@@ -84,7 +84,8 @@ class ArrayCreator {
 
         return array;
     }
-    //TODO: Запрашивает у пользователя два крайних значения типа double.
+
+    /** Запрашивает у пользователя два крайних значения типа double.*/
     private double[] getTwoSortedDoubleValues(){
         double[] array = new double[]{userTalker.getDoubleFromUser("Введите первое крайнее значение: "),
                 userTalker.getDoubleFromUser("Введите второе крайнее значение: ")};
@@ -95,7 +96,7 @@ class ArrayCreator {
         return array;
     }
 
-    //TODO: Запрашивает у пользователя два крайних значения типа float.
+    /** Запрашивает у пользователя два крайних значения типа float.*/
     private float[] getTwoSortedFloatValues(){
 
         float[] array = new float[]{userTalker.getFloatFromUser("Введите первое крайнее значение: "),
@@ -107,13 +108,13 @@ class ArrayCreator {
         return array;
     }
 
-    //TODO: Создает матрицу, размеры заданы как аргументы
+    /** Создает матрицу, размеры заданы как аргументы */
     float[][] createMatrix(int height, int width){
 
         return new float[height][width];
     }
 
-    //TODO: Создает матрицу, размеры которого задает пользователь, ограниченные макс. и мин. значением
+    /** Создает матрицу, размеры которого задает пользователь, ограниченные макс. и мин. значением */
     float[][] createMatrixWithUserInput(int maxValueY, int maxValueX){
 
         // Получаем количество строк (height) ограничиваяясь переменной maxValueY
@@ -155,7 +156,7 @@ class ArrayCreator {
         return createMatrix(height, width);
     }
 
-    //TODO: Заполняет массив элементами, которые высчитываются согласно условию задачи
+    /** Заполняет массив элементами, которые высчитываются согласно условию задачи */
     float[][] getFilledMatrix(float[][] matrix,short[] a,double[] x){
 
         for(int i=0;i<matrix.length;i++){

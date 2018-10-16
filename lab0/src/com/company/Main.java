@@ -12,6 +12,7 @@ public class Main {
         * Ошибки обработаны в самом классе FileManager
         * По умолчанию имя файла для работы: "input.txt"*/
         final String INPUT_FILE = "input.txt";
+
         FileManager fileManager = new FileManager(INPUT_FILE);
 
         // Для работы с вводом пользователя

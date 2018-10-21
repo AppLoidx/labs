@@ -1,5 +1,5 @@
 package com.company.pokemons;
-
+import com.company.moves.*;
 
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
@@ -12,12 +12,5 @@ public class Guzzlord extends Pokemon {
         setType(Type.DARK, Type.DRAGON);
         setMove(new Rest(), new VacuumWave(), new CalmMind(), new AerialAce());
     }
-
-    // MOVES
-
-    class Rest extends com.company.moves.Rest {}
-    class VacuumWave extends com.company.moves.VacuumWave {}
-    class CalmMind extends com.company.moves.CalmMind {}
-    class AerialAce extends com.company.moves.AerialAce {}
 
 }

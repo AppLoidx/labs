@@ -1,7 +1,6 @@
 package com.company.pokemons;
 
-import com.company.moves.DreamEater;
-import com.company.moves.ThunderWave;
+import com.company.moves.*;
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 

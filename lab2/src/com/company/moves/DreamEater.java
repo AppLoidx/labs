@@ -28,7 +28,6 @@ public class DreamEater extends StatusMove {
         }
     }
 
-    //TODO: set max HP
     @Override
     protected void applySelfEffects(Pokemon p) {
         int heal;

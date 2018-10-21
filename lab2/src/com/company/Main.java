@@ -16,7 +16,6 @@ public class Main {
         b.addFoe(new Igglybuff("Igly",1));
         b.addFoe(new Jigglypuff("Jiggly",11));
         b.addFoe(new Wigglytuff("Wiggly",1));
-
         b.go();
 
     }

@@ -8,22 +8,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Guzzlord guzzlord = new Guzzlord("Guzzy",5);
-        Numel numel = new Numel("Num",10);
-        Igglybuff igglybuff = new Igglybuff("Igly",20);
-        Jigglypuff jigglypuff = new Jigglypuff("Jiggly",30);
-        Wigglytuff wigglytuff = new Wigglytuff("Wiggly",12);
-        Camerupt camerupt = new Camerupt("Camel",18);
-
         Battle b = new Battle();
 
-        b.addAlly(guzzlord);
-        b.addAlly(numel);
-        b.addAlly(camerupt);
-        b.addFoe(igglybuff);
-        b.addFoe(wigglytuff);
-        b.addFoe(jigglypuff);
+        b.addAlly(new Guzzlord("Guzzy",1));
+        b.addAlly(new Numel("Num",43));
+        b.addAlly(new Camerupt("Camel",1));
+        b.addFoe(new Igglybuff("Igly",1));
+        b.addFoe(new Jigglypuff("Jiggly",11));
+        b.addFoe(new Wigglytuff("Wiggly",1));
 
         b.go();
+
     }
 }

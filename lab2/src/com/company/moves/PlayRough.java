@@ -2,7 +2,6 @@ package com.company.moves;
 
 import ru.ifmo.se.pokemon.*;
 
-//TODO: Check the Deals damage term
 /**
  * Play Rough deals damage and has a 10% chance of lowering the target's Attack by one stage.
  *

@@ -7,5 +7,6 @@ public class Jigglypuff extends Igglybuff {
         super(name, level);
         setStats(115,45,20,45,25,20);
         setMove(new DisarmingVoice());
+
     }
 }

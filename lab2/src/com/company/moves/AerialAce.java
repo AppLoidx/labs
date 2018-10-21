@@ -18,7 +18,6 @@ import ru.ifmo.se.pokemon.Type;
 public class AerialAce extends PhysicalMove {
     public AerialAce(){super(Type.FLYING,60,100);}
 
-    // TODO: check and realize for second term
     @Override
     protected boolean checkAccuracy(Pokemon att, Pokemon def){
         return false;

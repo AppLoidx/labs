@@ -4,7 +4,7 @@ import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.SpecialMove;
 import ru.ifmo.se.pokemon.Type;
 
-//TODO: Check the Deals damage term
+
 /**
  * Disarming Voice deals damage and ignores changes to the Accuracy and Evasion stats.
  *

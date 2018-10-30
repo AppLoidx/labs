@@ -52,6 +52,14 @@ def translate_to_decimal(base_numb, base_radix):
 #
 #     return result
 
+def translate_to_bin(number):
+    result = ""     # переменная, в которую записываем результат
+    while number > 0:
+        result += str(number % 2)   # остаток от деления на двойку
+        number = number // 2    # целочисленное деление на двойку
+
+    return result[::-1]     # переворачиваем результат
+
 
 def translate_to_fac(number, base_radix=10):
     number = translate_to_decimal(number, base_radix)
@@ -104,3 +112,4 @@ f.close()
 
 
 
+print(translate_to_bin(9))
